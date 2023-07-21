@@ -69,13 +69,16 @@ import io.netty.buffer.Unpooled;
 public class CurseEventsProcedure {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onHurt(LivingHurtEvent event) {
-		if (event.getEntity() != null && event.getSource().getEntity() != null) {
-			Entity source = event.getSource().getEntity();
+		float damage = event.getAmount();
+		if (event.getEntity() != null) {
 			Entity target = event.getEntity();
-			float damage = event.getAmount();
 			if (target instanceof Player player && CurseHelpersProcedure.isCursed(player)) {
 				event.setAmount((float) (damage * CurseModConfig.DEATH.get()));
-			} else if (source instanceof Player player && CurseHelpersProcedure.isCursed(player)) {
+			}
+		}
+		if (event.getSource().getEntity() != null) {
+			Entity source = event.getSource().getEntity();
+			if (source instanceof Player player && CurseHelpersProcedure.isCursed(player)) {
 				event.setAmount((float) (damage * CurseModConfig.WEAK.get()));
 			}
 		}
