@@ -27,41 +27,6 @@
           "src/main/java/net/salju/curse/client/gui/CurseGuiScreen.java"
         ]
       }
-    },
-    {
-      "name": "CurseEvents",
-      "type": "procedure",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "curse_events",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "CurseHelpers",
-      "type": "procedure",
-      "sortid": 8,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "curse_helpers",
-      "metadata": {
-        "files": [
-          "src/main/java/net/salju/curse/procedures/CurseHelpersProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
     }
   ],
   "variable_elements": [
@@ -75,7 +40,7 @@
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "gui.curse.curse_gui.label_exp": "+You get more EXP from Enemies",
+      "gui.curse.curse_gui.label_exp": "+You get more EXP from Mobs",
       "gui.curse.curse_gui.button_yes": "YES",
       "gui.curse.curse_gui.label_sleep": "-You cannot sleep",
       "gui.curse.cure_message": "The curse has been cured",
@@ -83,13 +48,30 @@
       "gui.curse.curse_gui.label_neutrals": "-Neutrals are hostile towards you",
       "gui.curse.curse_gui.label_player_damage": "-You take more damage",
       "gui.curse.curse_gui.label_player_knockback": "-You take more knockback",
-      "gui.curse.curse_gui.label_loot": "+You get more Loot from Enemies",
-      "gui.curse.curse_gui.label_enemy_damage": "-You deal less damage to Enemies",
+      "gui.curse.curse_gui.label_loot": "+You get more Loot from Mobs",
+      "gui.curse.curse_gui.label_enemy_damage": "-You deal less damage to Mobs",
       "gui.curse.curse_gui.button_no": "NO",
       "gui.curse.curse_gui.label_title": "Are you Cursed, my child?",
       "gui.curse.curse_gui.label_ores": "+You get more Loot from Ores",
       "gui.curse.curse_message": "You have been cursed",
       "gui.curse.curse_gui.label_fire": "-Fire lasts forever on you"
+    },
+    "uk_ua": {
+      "gui.curse.curse_gui.label_exp": "+Ви отримуєте більше досвіду з ворогів",
+      "gui.curse.curse_gui.button_yes": "TAK",
+      "gui.curse.curse_gui.label_sleep": "-Ви не можете спати",
+      "gui.curse.cure_message": "Прокляття знято",
+      "gui.curse.sleep_message": "Ви не можете спати, доти прокляті",
+      "gui.curse.curse_gui.label_neutrals": "-Нейтральні ворожі до вас",
+      "gui.curse.curse_gui.label_player_damage": "-Ви отримуєте більше шкоди",
+      "gui.curse.curse_gui.label_player_knockback": "-Ви отримуєте більше відкидання",
+      "gui.curse.curse_gui.label_loot": "+Ви отримуюте більше здобичі з ворогів",
+      "gui.curse.curse_gui.label_enemy_damage": "-Ви завдаєте менше шкоди ворогам",
+      "gui.curse.curse_gui.button_no": "HI",
+      "gui.curse.curse_gui.label_title": "Тебе прокляли, моє дитя?",
+      "gui.curse.curse_gui.label_ores": "+Ви отримуєте більше здобичі з руди",
+      "gui.curse.curse_message": "Вас прокляли",
+      "gui.curse.curse_gui.label_fire": "-Вогонь ніколи не вщухає на вас"
     },
     "zh_cn": {
       "gui.curse.curse_gui.label_exp": "+你从敌人那里得到更多经验值",
@@ -116,12 +98,14 @@
   "workspaceSettings": {
     "modid": "curse",
     "modName": "Curse",
-    "version": "1.3.0",
+    "version": "1.3.7",
+    "description": "Optional difficulty increasing mod on a per player basis",
     "author": "Jusey1",
     "websiteURL": "https://discord.gg/s7QaYGUzZU",
     "license": "Academic Free License v3.0",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
+    "modPicture": "cursedicon",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
