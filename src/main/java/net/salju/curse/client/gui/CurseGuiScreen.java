@@ -3,6 +3,7 @@ package net.salju.curse.client.gui;
 import net.salju.curse.world.inventory.CurseGuiMenu;
 import net.salju.curse.network.CurseGuiButtonMessage;
 import net.salju.curse.init.CurseModConfig;
+import net.salju.curse.events.CurseHelpers;
 import net.salju.curse.CurseMod;
 
 import net.minecraft.world.level.Level;
@@ -16,16 +17,13 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import java.util.HashMap;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.systems.RenderSystem;
-
 public class CurseGuiScreen extends AbstractContainerScreen<CurseGuiMenu> {
 	private final static HashMap<String, Object> guistate = CurseGuiMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	Button button_yes;
-	Button button_no;
+	Button yes;
+	Button no;
 
 	public CurseGuiScreen(CurseGuiMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -34,8 +32,8 @@ public class CurseGuiScreen extends AbstractContainerScreen<CurseGuiMenu> {
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 193;
-		this.imageHeight = 166;
+		this.imageWidth = 195;
+		this.imageHeight = 165;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("curse:textures/screens/curse_gui.png");
@@ -68,25 +66,25 @@ public class CurseGuiScreen extends AbstractContainerScreen<CurseGuiMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics ms, int mouseX, int mouseY) {
-		ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_title"), 30, 8, 4210752, false);
-		if ((CurseModConfig.WEAK.get() < 1.0))
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_enemy_damage"), 6, 20, 4210752, false);
-		if (CurseModConfig.DEATH.get() > 1.0)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_player_damage"), 6, 32, 4210752, false);
-		if (CurseModConfig.KNOCK.get() > 1.0)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_player_knockback"), 6, 44, 4210752, false);
+		ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_title"), 32, 19, 4210752, false);
+		if (CurseModConfig.WEAK.get() < 100) {
+			int i = (100 - CurseModConfig.WEAK.get());
+			ms.drawString(this.font, CurseHelpers.createComp("gui.curse.curse_gui.label_enemy_damage", i, "%"), 22, 48, 4210752, false);
+		}
+		if (CurseModConfig.DEATH.get() > 100) {
+			int i = Math.min(999, CurseModConfig.DEATH.get() - 100);
+			ms.drawString(this.font, CurseHelpers.createComp("gui.curse.curse_gui.label_player_damage", i, "%"), 22, 65, 4210752, false);
+		}
+		if (CurseModConfig.KNOCK.get() > 100) {
+			int i = Math.min(999, CurseModConfig.KNOCK.get() - 100);
+			ms.drawString(this.font, CurseHelpers.createComp("gui.curse.curse_gui.label_player_knockback", i, "%"), 22, 82, 4210752, false);
+		}
 		if (CurseModConfig.FIRE.get() == true)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_fire"), 6, 56, 4210752, false);
+			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_fire"), 22, 99, 4210752, false);
 		if (CurseModConfig.ANGRY.get() == true)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_neutrals"), 6, 68, 4210752, false);
+			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_neutrals"), 22, 116, 4210752, false);
 		if (CurseModConfig.SLEEP.get() == true)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_sleep"), 6, 80, 4210752, false);
-		if (CurseModConfig.EXP.get() > 1.0)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_exp"), 6, 98, 4210752, false);
-		if (CurseModConfig.DROPS.get() == true)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_loot"), 6, 110, 4210752, false);
-		if (CurseModConfig.ORE.get() == true)
-			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_ores"), 6, 122, 4210752, false);
+			ms.drawString(this.font, Component.translatable("gui.curse.curse_gui.label_sleep"), 22, 133, 4210752, false);
 	}
 
 	@Override
@@ -97,21 +95,21 @@ public class CurseGuiScreen extends AbstractContainerScreen<CurseGuiMenu> {
 	@Override
 	public void init() {
 		super.init();
-		button_yes = Button.builder(Component.translatable("gui.curse.curse_gui.button_yes"), e -> {
+		yes = Button.builder(Component.translatable("gui.curse.curse_gui.button_yes"), e -> {
 			if (true) {
 				CurseMod.PACKET_HANDLER.sendToServer(new CurseGuiButtonMessage(0, x, y, z));
 				CurseGuiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		}).bounds(this.leftPos + 102, this.topPos + 140, 40, 20).build();
-		guistate.put("button:button_yes", button_yes);
-		this.addRenderableWidget(button_yes);
-		button_no = Button.builder(Component.translatable("gui.curse.curse_gui.button_no"), e -> {
+		}).bounds(this.leftPos + 90, this.topPos + 166, 50, 20).build();
+		guistate.put("button:yes", yes);
+		this.addRenderableWidget(yes);
+		no = Button.builder(Component.translatable("gui.curse.curse_gui.button_no"), e -> {
 			if (true) {
 				CurseMod.PACKET_HANDLER.sendToServer(new CurseGuiButtonMessage(1, x, y, z));
 				CurseGuiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		}).bounds(this.leftPos + 144, this.topPos + 140, 35, 20).build();
-		guistate.put("button:button_no", button_no);
-		this.addRenderableWidget(button_no);
+		}).bounds(this.leftPos + 140, this.topPos + 166, 50, 20).build();
+		guistate.put("button:no", no);
+		this.addRenderableWidget(no);
 	}
-}
+}

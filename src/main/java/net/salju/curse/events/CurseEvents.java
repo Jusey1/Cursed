@@ -38,7 +38,6 @@ import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.MagmaCube;
 import net.minecraft.world.entity.monster.Husk;
 import net.minecraft.world.entity.monster.Guardian;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.monster.Creeper;
@@ -49,6 +48,7 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.util.RandomSource;
@@ -71,15 +71,17 @@ public class CurseEvents {
 	public static void onHurt(LivingHurtEvent event) {
 		float damage = event.getAmount();
 		if (event.getEntity() != null) {
-			Entity target = event.getEntity();
+			LivingEntity target = event.getEntity();
 			if (target instanceof Player player && CurseHelpers.isCursed(player)) {
-				event.setAmount((float) (damage * CurseModConfig.DEATH.get()));
+				float curse = ((float) CurseModConfig.DEATH.get() / 100);
+				event.setAmount(damage * curse);
 			}
 		}
 		if (event.getSource().getEntity() != null) {
 			Entity source = event.getSource().getEntity();
 			if (source instanceof Player player && CurseHelpers.isCursed(player)) {
-				event.setAmount((float) (damage * CurseModConfig.WEAK.get()));
+				float curse = ((float) CurseModConfig.WEAK.get() / 100);
+				event.setAmount(damage * curse);
 			}
 		}
 	}
@@ -87,10 +89,11 @@ public class CurseEvents {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onKnockKnock(LivingKnockBackEvent event) {
 		if (event.getEntity() != null) {
-			Entity target = event.getEntity();
+			LivingEntity target = event.getEntity();
 			float damage = event.getStrength();
 			if (target instanceof Player player && CurseHelpers.isCursed(player)) {
-				event.setStrength((float) (damage * CurseModConfig.KNOCK.get()));
+				float curse = ((float) CurseModConfig.KNOCK.get() / 100);
+				event.setStrength(damage * curse);
 			}
 		}
 	}
@@ -99,12 +102,11 @@ public class CurseEvents {
 	public static void onLivingDropXp(LivingExperienceDropEvent event) {
 		if (event.getAttackingPlayer() != null && event.getEntity() != null) {
 			Player player = event.getAttackingPlayer();
-			Entity target = event.getEntity();
+			LivingEntity target = event.getEntity();
 			int xp = event.getDroppedExperience();
 			if (CurseHelpers.isCursed(player)) {
-				if (target instanceof Enemy) {
-					event.setDroppedExperience((int) (xp * CurseModConfig.EXP.get()));
-				}
+				int curse = (CurseModConfig.EXP.get() / 100);
+				event.setDroppedExperience(xp * curse);
 			}
 		}
 	}
@@ -113,7 +115,7 @@ public class CurseEvents {
 	public static void onLivingDrops(LivingDropsEvent event) {
 		if (event.getEntity() != null && event.getSource() != null) {
 			if (event.getSource().getEntity() != null) {
-				Entity target = event.getEntity();
+				LivingEntity target = event.getEntity();
 				Entity source = event.getSource().getEntity();
 				LevelAccessor world = target.level();
 				double x = target.getX();

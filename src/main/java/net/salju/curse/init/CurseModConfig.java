@@ -6,32 +6,32 @@ public class CurseModConfig {
 	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 	public static final ForgeConfigSpec CONFIG;
 
-	public static final ForgeConfigSpec.DoubleValue DEATH;
-	public static final ForgeConfigSpec.DoubleValue WEAK;
-	public static final ForgeConfigSpec.DoubleValue KNOCK;
+	public static final ForgeConfigSpec.IntValue WEAK;
+	public static final ForgeConfigSpec.IntValue DEATH;
+	public static final ForgeConfigSpec.IntValue KNOCK;
 	public static final ForgeConfigSpec.BooleanValue FIRE;
 	public static final ForgeConfigSpec.BooleanValue ANGRY;
 	public static final ForgeConfigSpec.BooleanValue SLEEP;
 
-	public static final ForgeConfigSpec.DoubleValue EXP;
+	public static final ForgeConfigSpec.IntValue EXP;
 	public static final ForgeConfigSpec.BooleanValue DROPS;
 	public static final ForgeConfigSpec.BooleanValue ORE;
 	public static final ForgeConfigSpec.BooleanValue LOOT;
 	
 	static {
 		BUILDER.push("Curses");
-		DEATH = BUILDER.comment("How much damage the player takes from everything.").defineInRange("Player Damage", 2.0, 1.0, 76.0);
-		KNOCK = BUILDER.comment("How much knockback the player takes from everything.").defineInRange("Player Knockback", 2.0, 1.0, 76.0);
-		WEAK = BUILDER.comment("How much damage the player does against everything.").defineInRange("Hard Difficulty Damage", 0.5, 0.0, 1.0);
-		FIRE = BUILDER.comment("Should fire last forever on the player until doused manually?").define("Player Burns Burns Burns", true);
-		ANGRY = BUILDER.comment("Should neutral mobs be hostile to the player?").define("Player Hostile Neutrals", true);
-		SLEEP = BUILDER.comment("Should the player be unable go to sleep?").define("Player Sleepless", true);
+		WEAK = BUILDER.comment("How much damage the player does as a percent.").defineInRange("Player Damage Dealt", 50, 0, 100);
+		DEATH = BUILDER.comment("How much damage the player takes as a percent.").defineInRange("Player Damage Taken", 200, 100, Integer.MAX_VALUE);
+		KNOCK = BUILDER.comment("How much knockback the player takes as a percent.").defineInRange("Player Knockback Taken", 200, 100, Integer.MAX_VALUE);
+		FIRE = BUILDER.comment("Should fire last forever on the player until doused manually?").define("Player Burns", true);
+		ANGRY = BUILDER.comment("Should neutral mobs be hostile to the player?").define("Player Angry Neutrals", true);
+		SLEEP = BUILDER.comment("Should the player be unable go to sleep?").define("Player Insomnia", true);
 		BUILDER.pop();
 		BUILDER.push("Benefits");
-		EXP = BUILDER.comment("How much experience the player gains from defeating enemies.").defineInRange("Player Experience", 3.0, 1.0, 76.0);
-		DROPS = BUILDER.comment("Should the player get extra drops from defeating enemies?").define("Player Extra Drops", true);
-		ORE = BUILDER.comment("Should the player have extra ore drops?").define("Player Extra Ore Drops", true);
-		LOOT = BUILDER.comment("Should the player have an extra level of Looting?").define("Player Looting +1", true);
+		EXP = BUILDER.comment("How much experience the player gains from slain mobs as a percent").defineInRange("Player Experience", 300, 100, Integer.MAX_VALUE);
+		DROPS = BUILDER.comment("Should the player get unique drops from slain mobs?").define("Player Unique Drops", true);
+		ORE = BUILDER.comment("Should the player have an unique fortune level for specific blocks?").define("Player Unique Fortune", true);
+		LOOT = BUILDER.comment("Should the player have an unique looting level?").define("Player Unique Looting", true);
 		BUILDER.pop();
 		CONFIG = BUILDER.build();
 	}

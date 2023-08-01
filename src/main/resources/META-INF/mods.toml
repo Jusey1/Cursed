@@ -4,9 +4,9 @@ license="Academic Free License v3.0"
 
 [[mods]]
 modId="curse"
-version="1.3.7"
+version="1.4.0"
 displayName="Curse"
-credits="Jusey1"
+credits="Jusey1, Burack"
 displayURL="https://discord.gg/s7QaYGUzZU"
 logoFile="logo.png"
 authors="Jusey1"
