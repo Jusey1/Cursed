@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="curse"
+version="1.4.1"
+displayName="Curse"
+credits="Jusey1, Burack"
+displayURL="https://discord.gg/s7QaYGUzZU"
+logoFile="logo.png"
+authors="Jusey1"
+description="Optional difficulty increasing mod on a per player basis"
+
+[[dependencies.curse]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+
