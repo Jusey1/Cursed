@@ -1,0 +1,12 @@
+{
+  "gui.curse.curse_gui.label_drops": "You gain unique drops",
+  "gui.curse.curse_gui.label_sleep": "You have permanent Insomnia",
+  "gui.curse.cure_message": "The curse has been cured",
+  "gui.curse.sleep_message": "You cannot sleep as a Cursed player",
+  "gui.curse.curse_gui.label_title": "Are you Cursed, my child?",
+  "gui.curse.curse_gui.label_neutrals": "Neutrals are hostile to you",
+  "gui.curse.curse_gui.label_player_damage": "You take %1$s%2$s more damage",
+  "gui.curse.curse_message": "You have been cursed",
+  "gui.curse.curse_gui.label_fire": "Fire will last forever on you",
+  "gui.curse.curse_gui.label_xp": "You gain %1$s%2$s more EXP"
+}

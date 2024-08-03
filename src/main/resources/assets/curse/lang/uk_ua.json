@@ -1,0 +1,12 @@
+{
+  "gui.curse.curse_gui.label_drops": "You gain unique drops",
+  "gui.curse.curse_gui.label_sleep": "Ви не можете спати",
+  "gui.curse.cure_message": "Прокляття знято",
+  "gui.curse.sleep_message": "Ви не можете спати, доти прокляті",
+  "gui.curse.curse_gui.label_title": "Тебе прокляли, моє дитя?",
+  "gui.curse.curse_gui.label_neutrals": "Нейтральні ворожі до вас",
+  "gui.curse.curse_gui.label_player_damage": "Ви отримуєте більше %1$s%2$s шкоди",
+  "gui.curse.curse_message": "Вас прокляли",
+  "gui.curse.curse_gui.label_fire": "Вогонь ніколи не вщухає на вас",
+  "gui.curse.curse_gui.label_xp": "You gain %1$s%2$s more experience"
+}

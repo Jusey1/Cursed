@@ -1,0 +1,12 @@
+{
+  "gui.curse.curse_gui.label_drops": "You gain unique drops",
+  "gui.curse.curse_gui.label_sleep": "你不能睡觉",
+  "gui.curse.cure_message": "诅咒已被治愈",
+  "gui.curse.sleep_message": "作为一个被诅咒的玩家，你无法入睡",
+  "gui.curse.curse_gui.label_title": "你被诅咒了吗，我的孩子？",
+  "gui.curse.curse_gui.label_neutrals": "中立者对你有敌意",
+  "gui.curse.curse_gui.label_player_damage": "你受到更多%1$s%2$s伤害",
+  "gui.curse.curse_message": "你被诅咒了",
+  "gui.curse.curse_gui.label_fire": "火在你身上永存",
+  "gui.curse.curse_gui.label_xp": "You gain %1$s%2$s more experience"
+}
