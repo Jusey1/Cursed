@@ -1,0 +1,7 @@
+{
+  "item.curse.tooltip.true": "Consuming this item will Curse you",
+  "item.curse.tooltip.false": "Consuming this item will Cleanse you",
+  "gui.curse.cure_message": "The Curse has been Cleansed from within you",
+  "gui.curse.sleep_message": "You cannot sleep while Cursed",
+  "gui.curse.curse_message": "You have been Cursed with Increased Difficulty"
+}

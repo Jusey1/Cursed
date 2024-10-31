@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT License"
+
+[[mods]]
+modId="curse"
+version="2.1.0"
+displayName="Cursed"
+displayURL="https://discord.gg/s7QaYGUzZU"
+logoFile="logo.png"
+credits="Jusey1"
+authors="Jusey1"
+description="Optional difficulty increasing mod on a per player basis"
+
+[[mixins]]
+config="curse.mixins.json"
+
+[[dependencies.curse]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.21.2,)"
+    ordering="NONE"
+    side="BOTH"
