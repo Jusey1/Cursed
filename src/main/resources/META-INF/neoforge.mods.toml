@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="curse"
-version="2.1.0"
+version="2.1.1"
 displayName="Cursed"
 displayURL="https://discord.gg/s7QaYGUzZU"
 logoFile="logo.png"

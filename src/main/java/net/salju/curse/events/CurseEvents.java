@@ -1,6 +1,7 @@
 package net.salju.curse.events;
 
 import net.salju.curse.init.*;
+import net.salju.curse.item.component.CursedItem;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.EventPriority;
@@ -20,14 +21,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.TamableAnimal;
-import net.salju.curse.item.component.CursedItem;
 
 @EventBusSubscriber
 public class CurseEvents {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
-	public static void onHurt(LivingDamageEvent.Pre event) {
+	public static void onHurt(LivingIncomingDamageEvent event) {
 		if (event.getEntity() instanceof Player player && CurseManager.isCursed(player)) {
-			event.setNewDamage(event.getOriginalDamage() * ((float) CursedConfig.DEATH.get() / 100));
+			event.setAmount(event.getAmount() * ((float) CursedConfig.DEATH.get() / 100));
 		}
 	}
 
