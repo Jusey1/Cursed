@@ -1,6 +1,13 @@
 {
   "item.curse.tooltip.true": "Consuming this item will Curse you",
+  "item.curse.tooltip.damage": "You will take %1$s%2$s more damage",
+  "item.curse.tooltip.neutrals": "Neutrals will be hostile to you",
+  "item.curse.tooltip.fire": "Fire will last forever on you",
+  "item.curse.tooltip.sleep": "You will have permanent Insomnia",
+  "item.curse.tooltip.drops": "You will gain unique drops",
+  "item.curse.tooltip.xp": "You will gain %1$s%2$s more EXP",
   "item.curse.tooltip.false": "Consuming this item will Cleanse you",
+  "item.curse.tooltip.shift": "Hold Shift to Read",
   "gui.curse.cure_message": "The Curse has been Cleansed from within you",
   "gui.curse.sleep_message": "You cannot sleep while Cursed",
   "gui.curse.curse_message": "You have been Cursed with Increased Difficulty"

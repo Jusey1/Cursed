@@ -1,0 +1,14 @@
+{
+  "item.curse.tooltip.true": "Consuming this item will Curse you",
+  "item.curse.tooltip.damage": "Ви отримуєте більше %1$s%2$s шкоди",
+  "item.curse.tooltip.neutrals": "Нейтральні ворожі до вас",
+  "item.curse.tooltip.fire": "Вогонь ніколи не вщухає на вас",
+  "item.curse.tooltip.sleep": "Ви не можете спати",
+  "item.curse.tooltip.drops": "You will gain unique drops",
+  "item.curse.tooltip.xp": "You will gain %1$s%2$s more EXP",
+  "item.curse.tooltip.false": "Consuming this item will Cleanse you",
+  "item.curse.tooltip.shift": "Hold Shift to Read",
+  "gui.curse.cure_message": "Прокляття знято",
+  "gui.curse.sleep_message": "Ви не можете спати, доти прокляті",
+  "gui.curse.curse_message": "Вас прокляли"
+}
