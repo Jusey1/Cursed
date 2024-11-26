@@ -12,6 +12,7 @@ public class CursedConfig {
 
 	public static final ModConfigSpec.IntValue DEATH;
 	public static final ModConfigSpec.IntValue KNOCK;
+	public static final ModConfigSpec.IntValue MAXDMG;
 	public static final ModConfigSpec.BooleanValue FIRE;
 	public static final ModConfigSpec.BooleanValue ANGRY;
 	public static final ModConfigSpec.BooleanValue SLEEP;
@@ -27,6 +28,7 @@ public class CursedConfig {
 		BUILDER.push("Curses");
 		DEATH = BUILDER.comment("How much damage the player takes as a percent.").defineInRange("Damage Curse", 200, 100, Integer.MAX_VALUE);
 		KNOCK = BUILDER.comment("How much knockback the player takes as a percent.").defineInRange("Knockback Curse", 200, 100, Integer.MAX_VALUE);
+		MAXDMG = BUILDER.comment("Maximum amount of damage that will be affected by the Curse.").defineInRange("MaxDamage Curse", 9276, 0, Integer.MAX_VALUE);
 		FIRE = BUILDER.comment("Should fire last forever on the player until doused manually?").define("Fire Curse", true);
 		ANGRY = BUILDER.comment("Should neutral mobs be hostile to the player?").define("Neutral Curse", true);
 		SLEEP = BUILDER.comment("Should the player be unable go to sleep?").define("Insomnia Curse", true);

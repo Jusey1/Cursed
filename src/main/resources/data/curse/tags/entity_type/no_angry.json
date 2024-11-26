@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "minecraft:wolf",
-    "minecraft:bee"
+    "minecraft:bee",
+    {
+      "id": "spawn:ant",
+      "required": false
+    }
   ]
 }

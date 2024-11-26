@@ -26,14 +26,14 @@ import net.minecraft.world.entity.TamableAnimal;
 public class CurseEvents {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onHurt(LivingIncomingDamageEvent event) {
-		if (event.getEntity() instanceof Player player && CurseManager.isCursed(player)) {
+		if (event.getEntity() instanceof Player player && CurseManager.isCursed(player) && event.getAmount() <= CursedConfig.MAXDMG.get()) {
 			event.setAmount(event.getAmount() * ((float) CursedConfig.DEATH.get() / 100));
 		}
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onKnockKnock(LivingKnockBackEvent event) {
-		if (event.getEntity() instanceof Player player && CurseManager.isCursed(player)) {
+		if (event.getEntity() instanceof Player player && CurseManager.isCursed(player) && event.getStrength() <= CursedConfig.MAXDMG.get()) {
 			event.setStrength(event.getStrength() * ((float) CursedConfig.KNOCK.get() / 100));
 		}
 	}
