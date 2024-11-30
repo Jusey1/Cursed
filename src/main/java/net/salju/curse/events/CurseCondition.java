@@ -8,6 +8,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.util.context.ContextKey;
+import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.MapCodec;
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -26,7 +27,7 @@ public record CurseCondition() implements LootItemCondition {
 
 	@Override
 	public Set<ContextKey<?>> getReferencedContextParams() {
-		return Set.of(LootContextParams.ATTACKING_ENTITY);
+		return ImmutableSet.of(LootContextParams.ATTACKING_ENTITY, LootContextParams.THIS_ENTITY);
 	}
 
 	@Override
@@ -36,9 +37,9 @@ public record CurseCondition() implements LootItemCondition {
 
 	@Nullable
 	public Entity getTarget(LootContext context) {
-		if (context.hasParameter(LootContextParams.ATTACKING_ENTITY)) {
+		if (context.hasParameter(LootContextParams.ATTACKING_ENTITY) && context.getParameter(LootContextParams.ATTACKING_ENTITY) instanceof Player) {
 			return context.getParameter(LootContextParams.ATTACKING_ENTITY);
-		} else if (context.hasParameter(LootContextParams.THIS_ENTITY)) {
+		} else if (context.hasParameter(LootContextParams.THIS_ENTITY) && context.getParameter(LootContextParams.THIS_ENTITY) instanceof Player) {
 			return context.getParameter(LootContextParams.THIS_ENTITY);
 		}
 		return null;
