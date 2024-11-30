@@ -12,13 +12,10 @@ import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.util.Mth;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.TamableAnimal;
 
@@ -43,30 +40,6 @@ public class CurseEvents {
 		if (event.getAttackingPlayer() != null) {
 			if (CurseManager.isCursed(event.getAttackingPlayer())) {
 				event.setDroppedExperience(event.getDroppedExperience() * (CursedConfig.EXP.get() / 100));
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public static void onLivingDrops(LivingDropsEvent event) {
-		if (event.getSource().getEntity() instanceof Player player) {
-			if (CurseManager.isCursed(player) && CursedConfig.DROPS.get()) {
-				ItemStack stack = new ItemStack(CurseManager.getItem(event.getEntity().getType()));
-				if (player.level() instanceof ServerLevel lvl && Math.random() >= 0.85) {
-					if (stack.is(CursedTags.RARES)) {
-						if (Math.random() >= 0.85) {
-							ItemEntity item = new ItemEntity(lvl, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), stack);
-							item.setPickUpDelay(10);
-							lvl.addFreshEntity(item);
-						}
-					} else {
-						for (int i = 0; i < Mth.nextInt(player.getRandom(), 1, 2); i++) {
-							ItemEntity item = new ItemEntity(lvl, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), stack);
-							item.setPickUpDelay(10);
-							lvl.addFreshEntity(item);
-						}
-					}
-				}
 			}
 		}
 	}

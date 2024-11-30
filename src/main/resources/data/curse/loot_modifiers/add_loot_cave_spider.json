@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:add_table",
+  "conditions":
+  [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/cave_spider"
+    }
+  ],
+  "table": "curse:cursed/entities/cave_spider"
+}

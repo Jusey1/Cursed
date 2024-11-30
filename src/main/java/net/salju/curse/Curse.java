@@ -12,6 +12,7 @@ public class Curse {
 
 	public Curse(ModContainer mod, IEventBus bus) {
 		CursedData.REGISTRY.register(bus);
+		CursedLoot.REGISTRY.register(bus);
 		mod.registerConfig(ModConfig.Type.COMMON, CursedConfig.CONFIG, "cursed-common.toml");
 	}
 }

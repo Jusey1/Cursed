@@ -36,9 +36,6 @@ public abstract class ItemMixin {
 					if (CursedConfig.SLEEP.get()) {
 						list.add(Component.translatable("item.curse.tooltip.sleep").withStyle(ChatFormatting.DARK_PURPLE));
 					}
-					if (CursedConfig.DROPS.get()) {
-						list.add(Component.translatable("item.curse.tooltip.drops").withStyle(ChatFormatting.DARK_PURPLE));
-					}
 					if (CursedConfig.EXP.get() > 100) {
 						list.add(Component.translatable("item.curse.tooltip.xp", Component.literal(Integer.toString(CursedConfig.EXP.get() - 100)).withStyle(ChatFormatting.GOLD), Component.literal("%").withStyle(ChatFormatting.GOLD)).withStyle(ChatFormatting.DARK_PURPLE));
 					}

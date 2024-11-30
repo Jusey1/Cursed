@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "entries": [
+    "curse:add_loot_blaze",
+    "curse:add_loot_bogged",
+    "curse:add_loot_breeze",
+    "curse:add_loot_cave_spider",
+    "curse:add_loot_chicken",
+    "curse:add_loot_cow",
+    "curse:add_loot_creeper",
+    "curse:add_loot_drowned",
+    "curse:add_loot_enderman",
+    "curse:add_loot_evoker",
+    "curse:add_loot_husk",
+    "curse:add_loot_magma_cube",
+    "curse:add_loot_piglin",
+    "curse:add_loot_piglin_brute",
+    "curse:add_loot_pillager",
+    "curse:add_loot_skeleton",
+    "curse:add_loot_spider",
+    "curse:add_loot_stray",
+    "curse:add_loot_vindicator",
+    "curse:add_loot_witch",
+    "curse:add_loot_wither_skeleton",
+    "curse:add_loot_zombie",
+    "curse:add_loot_zombified_piglin"
+  ]
+}
