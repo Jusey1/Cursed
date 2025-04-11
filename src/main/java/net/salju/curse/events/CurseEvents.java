@@ -86,16 +86,21 @@ public class CurseEvents {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
 		if (!CurseManager.isCursed(event.getEntity())) {
+			if (event.getEntity().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).isEmpty()) {
+				event.getEntity().getPersistentData().put(Player.PERSISTED_NBT_TAG, new CompoundTag());
+			}
 			if (CursedConfig.ALWAYS.get()) {
 				CurseManager.setCursed(event.getEntity(), true);
 			} else if (CursedConfig.APPLE.get()) {
-				CompoundTag data = event.getEntity().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
-				if (!data.getBoolean("cursed_has_joined")) {
-					ItemStack apple = new ItemStack(Items.GOLDEN_APPLE);
-					apple.set(CursedData.CURSED, new CursedItem(true));
-					ItemHandlerHelper.giveItemToPlayer(event.getEntity(), apple);
-					data.putBoolean("cursed_has_joined", true);
-					event.getEntity().getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+				if (event.getEntity().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).isPresent()) {
+					CompoundTag data = event.getEntity().getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).get();
+					if (!data.getBooleanOr("cursed_has_joined", false)) {
+						ItemStack apple = new ItemStack(Items.GOLDEN_APPLE);
+						apple.set(CursedData.CURSED, new CursedItem(true));
+						ItemHandlerHelper.giveItemToPlayer(event.getEntity(), apple);
+						data.putBoolean("cursed_has_joined", true);
+						event.getEntity().getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+					}
 				}
 			}
 		}
