@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="curse"
-version="2.2.2"
+version="2.2.3"
 displayName="Cursed"
 displayURL="https://discord.gg/s7QaYGUzZU"
 logoFile="logo.png"
@@ -18,6 +18,6 @@ config="curse.mixins.json"
 [[dependencies.curse]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.21.6]"
+    versionRange="[1.21.7]"
     ordering="NONE"
     side="BOTH"
