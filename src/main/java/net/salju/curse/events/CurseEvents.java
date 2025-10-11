@@ -8,7 +8,6 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
@@ -97,7 +96,7 @@ public class CurseEvents {
 					if (!data.getBooleanOr("cursed_has_joined", false)) {
 						ItemStack apple = new ItemStack(Items.GOLDEN_APPLE);
 						apple.set(CursedData.CURSED, new CursedItem(true));
-						ItemHandlerHelper.giveItemToPlayer(event.getEntity(), apple);
+                        event.getEntity().addItem(apple);
 						data.putBoolean("cursed_has_joined", true);
 						event.getEntity().getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
 					}

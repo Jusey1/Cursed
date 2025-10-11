@@ -2,7 +2,7 @@
   "required": true,
   "package": "net.salju.curse.mixins",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "display.refmap.json",
+  "refmap": "curse.refmap.json",
   "client": [
     "ItemMixin"
   ],
