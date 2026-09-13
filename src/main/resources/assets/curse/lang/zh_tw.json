@@ -1,0 +1,14 @@
+{
+  "item.curse.tooltip.true": "食用此物品將使你受到詛咒",
+  "item.curse.tooltip.damage": "你受到的傷害增加 %1$s%2$s",
+  "item.curse.tooltip.neutrals": "中立生物將對你產生敵意",
+  "item.curse.tooltip.fire": "一旦著火將難以熄滅",
+  "item.curse.tooltip.sleep": "永久性失眠將常伴左右",
+  "item.curse.tooltip.drops": "你將獲得獨特掉落物",
+  "item.curse.tooltip.xp": "獲取的經驗值增加 %1$s%2$s",
+  "item.curse.tooltip.false": "食用此物品將淨化你",
+  "item.curse.tooltip.shift": "按住 Shift 查看",
+  "gui.curse.cure_message": "你身上的詛咒已被淨化",
+  "gui.curse.sleep_message": "受到詛咒時無法入睡",
+  "gui.curse.curse_message": "你已受到詛咒，遊戲難度提升"
+}
